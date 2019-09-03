@@ -8,6 +8,8 @@ public class Food {
         this.price = price;
     }
 
+
+
     public String getName() {
         return name;
     }
@@ -22,5 +24,10 @@ public class Food {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return name +", " + price + "SEK\n";
     }
 }

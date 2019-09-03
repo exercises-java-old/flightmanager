@@ -29,9 +29,14 @@ public class Menu {
 
     @Override
     public String toString() {
-        return "Menu{" +
-                "ticketType=" + ticketType +
-                ", foodList=" + foodList +
-                '}';
+        String output = "";
+        for(Food food : foodList){
+            output += food.toString();
+        }
+
+        //ternary operator statement
+        String menuName = ticketType == TicketType.ECONOMY ? "Cheap Menu:" : "Classy Menu:";
+
+        return menuName + "\n" + output;
     }
 }

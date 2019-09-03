@@ -3,7 +3,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class MenuTest {
 
     @Test
@@ -26,7 +25,10 @@ public class MenuTest {
         foodList.add(food6);
         foodList.add(food7);
 
-        System.out.println(foodList.toString());
+        Menu cheapMenu = new Menu(TicketType.ECONOMY, foodList);
+
+        System.out.println(cheapMenu.toString());
+
     }
 
 }
