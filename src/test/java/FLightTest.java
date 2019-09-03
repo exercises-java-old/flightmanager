@@ -7,19 +7,32 @@ public class FLightTest {
     public void availabilityTest(){
         Flight flight = new Flight();
 
-        flight.addTicket(1, new Ticket(TicketType.BUSINESS));
-        flight.addTicket(2, new Ticket(TicketType.BUSINESS));
-        flight.addTicket(3, new Ticket(TicketType.BUSINESS));
-        flight.addTicket(5, new Ticket(TicketType.BUSINESS));
+        Ticket testTicket = new Ticket(TicketType.BUSINESS);
 
-        Assert.assertTrue(flight.businessSeatIsAvailable());
+        flight.addTicket(new Ticket(TicketType.BUSINESS));
+        flight.addTicket( new Ticket(TicketType.BUSINESS));
+        flight.addTicket( new Ticket(TicketType.BUSINESS));
+        flight.addTicket( new Ticket(TicketType.BUSINESS));
+        flight.addTicket( new Ticket(TicketType.BUSINESS));
+        flight.addTicket( testTicket);
+
+        Assert.assertFalse(flight.getSeats().containsValue(testTicket));
+
     }
 
     @Test
     public void economySeatToBusinessTicketTest(){
         Flight flight = new Flight();
 
-        Assert.assertFalse(flight.addTicket(6, new Ticket(TicketType.BUSINESS)));
+        //Assert.assertFalse(flight.addTicket( new Ticket(TicketType.BUSINESS)));
+
+    }
+
+    @Test
+    public void addTicketTest(){
+        Flight flight = new Flight();
+
+        flight.addTicket( new Ticket(TicketType.BUSINESS));
 
     }
 }

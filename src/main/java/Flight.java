@@ -11,35 +11,44 @@ public class Flight {
 
     }
 
-    public boolean businessSeatIsAvailable() {
-        //if there is any seat 1-5 that is not taken --> return true
+    public Map<Integer, Ticket> getSeats(){
+        return seats;
+    }
+
+    public int businessSeatIsAvailable() {
+
         for (int i = 1; i <= 5; i++) {
             if (!seats.containsKey(i)) {
-                return true;
+                return i;
             }
         }
-        return false;
+        return 0;
     }
 
-    public boolean economySeatIsAvailable() {
+    public int economySeatIsAvailable() {
         for (int i = 6; i <= 10; i++) {
             if (!seats.containsKey(i)) {
-                return true;
+                return i;
             }
         }
-        return false;
+        return 0;
     }
 
 
-    public boolean addTicket(int seatNumber, Ticket ticket) {
-        if (seatNumber >= 1 && seatNumber <= 5
-                && ticket.getTicketType() == TicketType.BUSINESS) {
-            seats.put(seatNumber, ticket);
-            return true;
-        } else if (seatNumber >= 6 && seatNumber <= 10
-                && ticket.getTicketType() == TicketType.ECONOMY) {
-            seats.put(seatNumber, ticket);
-            return true;
+    public boolean addTicket(Ticket ticket) {
+        if (ticket.getTicketType() == TicketType.BUSINESS) {
+            if(businessSeatIsAvailable() > 0) {
+                seats.put(businessSeatIsAvailable(), ticket);
+                return true;
+            }
+
+        }
+
+        if (ticket.getTicketType() == TicketType.ECONOMY) {
+            if(economySeatIsAvailable() > 0){
+                seats.put(economySeatIsAvailable(), ticket);
+                return true;
+            }
         }
         return false;
     }
