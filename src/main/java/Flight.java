@@ -34,16 +34,17 @@ public class Flight {
         return 0;
     }
 
-
-    public boolean addTicket(Ticket ticket) {
+    public boolean addBusinessTicket(Ticket ticket) {
         if (ticket.getTicketType() == TicketType.BUSINESS) {
-            if(businessSeatIsAvailable() > 0) {
+            if (businessSeatIsAvailable() > 0) {
                 seats.put(businessSeatIsAvailable(), ticket);
                 return true;
             }
-
         }
+        return false;
+    }
 
+    public boolean addEconomyTicket(Ticket ticket){
         if (ticket.getTicketType() == TicketType.ECONOMY) {
             if(economySeatIsAvailable() > 0){
                 seats.put(economySeatIsAvailable(), ticket);
