@@ -6,6 +6,19 @@ import java.util.List;
 public class MenuTest {
 
     @Test
+    public void testRemoveFoodItem(){
+        Menu menu = new Menu();
+        menu.removeFoodFromBusinessMenu("Espresso");
+        menu.removeFoodFromBusinessMenu("Sparkling Water");
+
+        menu.removeFoodFromEconomyMenu("Nescafé");
+        menu.removeFoodFromEconomyMenu("Beer");
+
+        System.out.println(menu.toString());
+    }
+
+    /*
+    @Test
     public void createMenuTest(){
         List<Food> cheapFoodList = new ArrayList<>();
         List<Food> classyFoodList = new ArrayList<>();
@@ -51,5 +64,5 @@ public class MenuTest {
         System.out.println(highLifeMenu.toString());
 
     }
-
+*/
 }

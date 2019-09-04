@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -5,38 +6,87 @@ public class Menu {
 
     TicketType ticketType;
 
-    List<Food> foodList;
+    static List<Food> businessMenu = new ArrayList<>();
+
+    static List<Food> economyMenu = new ArrayList<>();
+
+    //anonymous scope
+    {
+        economyMenu.add(new Food("Spaghetti Bolognese", 149));
+        economyMenu.add(new Food("Chicken Tikka Masala", 149));
+        economyMenu.add(new Food("Cheese sandwich", 99));
+        economyMenu.add(new Food("Beer", 39));
+        economyMenu.add(new Food("Tap Water From Toilet Zink", 29));
+        economyMenu.add(new Food("Nescafé", 29));
+        economyMenu.add(new Food("Lipton Tea", 29));
+
+        businessMenu.add(new Food("Lobster", 649));
+        businessMenu.add(new Food("Wagyu", 1149));
+        businessMenu.add(new Food("Smörgåstårta", 399));
+        businessMenu.add(new Food("Champagne", 339));
+        businessMenu.add(new Food("Sparkling Water", 89));
+        businessMenu.add(new Food("Espresso", 129));
+        businessMenu.add(new Food("Japanese Tea Ceremony", 729));
+    }
+
+    public Menu(){}
 
     public Menu(TicketType ticketType, List<Food> foodList) {
         this.ticketType = ticketType;
-        this.foodList = foodList;
+  //      this.foodList = foodList;
     }
 
-    public void addFoodItem(Food food) {
-        foodList.add(food);
+    List<Food> getAllFoodItems(){
+        List<Food> allFood = new ArrayList<>();
+        allFood.addAll(economyMenu);
+        allFood.addAll(businessMenu);
+        return allFood;
     }
 
-    public void removeFoodItem(String foodName) {
-        Iterator<Food> iter = foodList.iterator();
+    public void addFoodToBusinessMenu(Food food) {
+        businessMenu.add(food);
+    }
 
-        while (iter.hasNext()) {
-            Food food = iter.next();
-            if (food.getName().equals(foodName)) {
-                foodList.remove(food);
+    public void removeFoodFromBusinessMenu(String foodName) {
+
+        Iterator<Food> iter = businessMenu.iterator();
+        while(iter.hasNext()){
+            if(iter.next().getName().equals(foodName)){
+                iter.remove();
             }
         }
     }
 
+    public void removeFoodFromEconomyMenu(String foodName) {
+
+        Iterator<Food> iter = economyMenu.iterator();
+        while(iter.hasNext()){
+            if(iter.next().getName().equals(foodName)){
+                iter.remove();
+            }
+        }
+    }
+
+
     @Override
     public String toString() {
         String output = "";
-        for(Food food : foodList){
+
+        output += "Business Menu:\n";
+        for(Food food : businessMenu){
+            output += food.toString();
+        }
+
+        output += "\nEconomy Menu:\n";
+        for(Food food : economyMenu) {
             output += food.toString();
         }
 
         //ternary operator statement
-        String menuName = ticketType == TicketType.ECONOMY ? "Cheap Menu:" : "Classy Menu:";
+        //String menuName = ticketType == TicketType.ECONOMY ? "Cheap Menu:" : "Classy Menu:";
 
-        return menuName + "\n" + output;
+        return output;
+
     }
+
 }
