@@ -17,7 +17,6 @@ public class MenuTest {
         System.out.println(menu.toString());
     }
 
-    /*
     @Test
     public void createMenuTest(){
         List<Food> cheapFoodList = new ArrayList<>();
@@ -39,7 +38,7 @@ public class MenuTest {
         cheapFoodList.add(food6);
         cheapFoodList.add(food7);
 
-        Menu cheapMenu = new Menu(TicketType.ECONOMY, cheapFoodList);
+        Menu cheapMenu = new Menu(TicketType.ECONOMY);
 
         Food food11 = new Food("Lobster", 649);
         Food food12 = new Food("Wagyu", 1149);
@@ -57,12 +56,12 @@ public class MenuTest {
         classyFoodList.add(food16);
         classyFoodList.add(food17);
 
-        Menu highLifeMenu = new Menu(TicketType.BUSINESS, classyFoodList);
+        Menu highLifeMenu = new Menu(TicketType.BUSINESS);
 
         System.out.println(cheapMenu.toString());
 
         System.out.println(highLifeMenu.toString());
 
     }
-*/
+
 }

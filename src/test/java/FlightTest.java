@@ -5,7 +5,7 @@ public class FlightTest {
 
     @Test
     public void availabilityTest(){
-        Flight flight = new Flight();
+        Flight flight = Flight.builder().withDestination("Asmara").build();
 
         Ticket testTicket = new Ticket(TicketType.BUSINESS);
 
@@ -33,7 +33,7 @@ public class FlightTest {
 
     @Test
     public void economySeatToBusinessTicketTest(){
-        Flight flight = new Flight();
+        Flight flight = Flight.builder().withDestination("Asmara").build();
 
         //Assert.assertFalse(flight.addTicket( new Ticket(TicketType.BUSINESS)));
 
@@ -41,7 +41,7 @@ public class FlightTest {
 
     @Test
     public void addTicketTest(){
-        Flight flight = new Flight();
+        Flight flight = Flight.builder().withDestination("Asmara").build();
 
         flight.addBusinessTicket( new Ticket(TicketType.BUSINESS));
 

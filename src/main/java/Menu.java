@@ -31,9 +31,8 @@ public class Menu {
 
     public Menu(){}
 
-    public Menu(TicketType ticketType, List<Food> foodList) {
+    public Menu(TicketType ticketType) {
         this.ticketType = ticketType;
-  //      this.foodList = foodList;
     }
 
     List<Food> getAllFoodItems(){

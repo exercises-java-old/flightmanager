@@ -4,6 +4,8 @@ public class Ticket {
 
     TicketType ticketType;
 
+    private String customerName;
+
     Food food;
 
     private int price;
@@ -21,23 +23,30 @@ public class Ticket {
         this.food = Objects.requireNonNull(builder.food, "food may not be null");
         this.seatNumber = Objects.requireNonNull(builder.seatNumber, "Ticket must have a seat number");
         this.flight = Objects.requireNonNull(builder.flight, "Ticket must have a flight");
+        this.customerName = Objects.requireNonNull(builder.customerName, "ticket must have customer");
     }
 
     public TicketType getTicketType() {
         return this.ticketType;
     }
 
-
+    public static Builder builder() { return new Builder(); }
 
     public static class Builder{
 
         private TicketType ticketType;
+        private String customerName;
         private Food food;
         private String seatNumber;
         private Flight flight;
 
         public Builder withTicketType(TicketType ticketType){
             this.ticketType = ticketType;
+            return this;
+        }
+
+        public Builder withCustomerName(String customerName){
+            this.customerName = customerName;
             return this;
         }
 
