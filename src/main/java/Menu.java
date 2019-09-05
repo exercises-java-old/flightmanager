@@ -88,4 +88,11 @@ public class Menu {
 
     }
 
+    public static List<Food> getBusinessMenu() {
+        return businessMenu;
+    }
+
+    public static List<Food> getEconomyMenu() {
+        return economyMenu;
+    }
 }
