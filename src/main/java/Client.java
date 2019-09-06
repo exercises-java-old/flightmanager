@@ -13,12 +13,25 @@ public class Client {
 
     }
 
+    /*
+    TODO: when the customer chooses TicketType the system has to check if it is available.
+     If not it should offer a TicketType of the other sort.
+     If not avaliable in any TicketType the system should crash!!!
+     Look in the Java API which int argument for System.exit(int arg) that is suitable for the situation
+     */
     public Ticket bookFlight() {
+        String customerName = setCustomerName();
         Flight flight = selectFlight();
         TicketType ticketType = selectTicketType();
         Food food = selectFood(ticketType);
 
         return null;
+    }
+
+    private String setCustomerName() {
+        String customerName = "";
+        System.out.println("Welcome, dear customer. May I please have your name:");
+        return scanner.nextLine();
     }
 
 
@@ -90,13 +103,13 @@ public class Client {
 
         while(!correctInput){
             for (Food food : menu) {
-                System.out.println(menu.indexOf(food) + 1 + ". " + food.toString() + "\n");
+                System.out.print(menu.indexOf(food) + 1 + ". " + food.toString());
             }
 
             input = scanner.nextLine();
 
             for (Food food : menu) {
-                if (food.toString().equalsIgnoreCase(input)) {
+                if (food.getName().equalsIgnoreCase(input)) {
                     return food;
                 }
             }

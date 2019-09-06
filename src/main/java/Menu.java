@@ -11,6 +11,7 @@ public class Menu {
     static List<Food> economyMenu = new ArrayList<>();
 
     //anonymous scope
+    static
     {
         economyMenu.add(new Food("Spaghetti Bolognese", 149));
         economyMenu.add(new Food("Chicken Tikka Masala", 149));
